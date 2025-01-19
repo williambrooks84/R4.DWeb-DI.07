@@ -48,6 +48,6 @@ git push -u
 ## Liens
 [TP1 : Introduction à Symfony](https://docs.google.com/document/d/1p57bF8mDKqiQ3j7rnpXmQ3zNeGixdrL8mB9-7ei4xPw/edit?usp=sharing)
 
-[TP2 : Doctrine](https://docs.google.com/document/d/1Og8lNe1Afz20ExA_TRfgnvA7vMFhnnEaoDwHnVdpzNk/edit?usp=sharing)
+[TP2 : Symfony / Twig](https://docs.google.com/document/d/11uuAOaOj0v4lq472WgB8HtH0jFywj6eqPpf_MF6erPA/edit?usp=sharing)
 
-[TP3 : Doctrine #2](https://docs.google.com/document/d/1uHgIVIQJMGPuTIubSbYgccfyh6NRQjEE3leYa9K2bLg/edit?usp=sharing)
+[TP3 : Database as a Service](https://docs.google.com/document/d/1cR5Er7pTwAj1ihKRMcsArq_EEaEUslYvOdaPq20NPmY/edit?usp=sharing)
