@@ -1,12 +1,24 @@
 # TP Symfony
 
-## Besoins
-[Docker Desktop](https://www.docker.com/products/docker-desktop/) doit être installé.
+Si c'est la première séance, commencez par lire le TP1 en passant par le lien un peu plus bas. Sinon, suivez les instructions suivantes pour relancer votre application Symfony.
 
 ## Mise en route
-Commencez par effectuer une copie de ce repository sur votre compte GitHub en cliquant sur le bouton "Fork" en haut à droite de cette page. Vous allez ensuite cloner votre "Fork" en local afin de travaillez dessus. Ouvrez un terminal sur votre machine, positionnez-vous dans un répertoire de travail (par exemple ~/Desktop/work), et faites un clone. Pour rappel, un clone s'effectue en cliquant sur le bouton déroulant "Code", en copiant l'URL du repository (préférez HTTPS au lieu de SSH), et en lnçant la commande `git clone ` suivie de cette URL. Attention à bien copier votre Fork et non le repository original!
+Commencez à lire le TP1 en utilisant le lien en bas du README. Vous serez invités
+
+Commencez par effectuer une copie de ce repository sur votre compte GitHub en cliquant sur le bouton "Fork" en haut à droite de cette page. Vous allez ensuite cloner votre "Fork" en local afin de travaillez dessus. Ouvrez un terminal sur votre machine, positionnez-vous dans un répertoire de travail (par exemple ~/Desktop/work), et faites un clone. Pour rappel, un clone s'effectue en cliquant sur le bouton déroulant "Code", en copiant l'URL du repository (préférez HTTPS au lieu de SSH), et en lançant la commande `git clone ` suivie de cette URL. Attention à bien copier votre Fork et non le repository original !
 
 Si c'est la première séance, passez directement au TP1 en passant par le lien un peu plus bas. Si vous avez déjà installé votre application Symfony, suivez les instructions suivantes pour lancer votre application.
+
+## Lancer l'application
+Vérifiez que Docker Desktop est lancé en cherchant son icône dans la barre de tâche. Si vous ne la trouvez pas, ouvrez l'application et attendez que tout soit opérationnel.
+
+Ouvrez VS Code, connectez-vous à votre Ubuntu avec WSL (bouton bleu avec les doubles flèches en bas à droite), puis ouvrez le dossier contenant votre application.
+
+Lancer l'environnement Docker : installer l'extension "Docker" pour VS Code si ce n'est pas déjà fait, faites un clic droit sur le fichier docker-compose.yml, puis "Compose Up". Vous pouvez aussi ouvrir un terminal dans le dossier du projet, et faire un `docker-compose up -d`.
+
+Installer les dépendances nécessaires : ouvrez un terminal dans le conteneur "tp-symfony-php" à partir de VS Code (Icône Docker à gauche, clic droit sur le conteneur, puis "Attach Shell") et faites un `composer install`.
+
+Vérifiez que vous accédez à votre application: [http://localhost:8787](http://localhost:8787).
 
 ## Versionner votre travail
 Il est très important de versionner vos fichiers régulièrement, afin de pouvoir facilement sauvegarder les différents versions de votre projet. En pratique, cela se traduit par faire des "commits" réguliers grâce à Git, en faisant des "push" sur votre repository GitHub.
@@ -32,15 +44,6 @@ git rebase
 # Mettez à jour le repository sur GitHub
 git push -u
 ```
-
-## Lancer l'application
-Vérifiez que Docker Desktop est lancé en cherchant son icône dans la barre de tâche. Si vous ne la trouvez pas, ouvrez l'application et attendez que tout soit opérationnel.
-
-Lancer l'environnement Docker : installer l'extension "Docker" pour VS Code, faites un clic droit sur le fichier docker-compose.yml, puis "Compose Up". Vous pouvez aussi ouvrir un terminal dans le dossier du projet, et faire un `docker-compose up -d`.
-
-Installer les dépendances nécessaires : ouvrez un terminal dans le conteneur "tp-symfony-php" à partir de VS Code (Icône Docker à gauche, clic droit sur le conteneur, puis "Attach Shell") et faites un `composer install`.
-
-Vérifiez que vous accédez à votre application: [http://localhost:8787](http://localhost:8787).
 
 ## Liens
 [TP1 : Introduction à Symfony](https://docs.google.com/document/d/1p57bF8mDKqiQ3j7rnpXmQ3zNeGixdrL8mB9-7ei4xPw/edit?usp=sharing)
