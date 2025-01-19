@@ -1,5 +1,5 @@
-# Use the official PHP 8.2 FPM image as the base image
-FROM php:8.2-fpm
+# Use the official PHP 8.3 FPM image as the base image
+FROM php:8.3-fpm
 
 # Install necessary dependencies
 RUN apt-get update && \
