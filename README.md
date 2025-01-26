@@ -2,13 +2,6 @@
 
 Si c'est la première séance, commencez par lire le TP1 en passant par le lien un peu plus bas. Sinon, suivez les instructions suivantes pour relancer votre application Symfony.
 
-## Mise en route
-Commencez à lire le TP1 en utilisant le lien en bas du README. Vous serez invités
-
-Commencez par effectuer une copie de ce repository sur votre compte GitHub en cliquant sur le bouton "Fork" en haut à droite de cette page. Vous allez ensuite cloner votre "Fork" en local afin de travaillez dessus. Ouvrez un terminal sur votre machine, positionnez-vous dans un répertoire de travail (par exemple ~/Desktop/work), et faites un clone. Pour rappel, un clone s'effectue en cliquant sur le bouton déroulant "Code", en copiant l'URL du repository (préférez HTTPS au lieu de SSH), et en lançant la commande `git clone ` suivie de cette URL. Attention à bien copier votre Fork et non le repository original !
-
-Si c'est la première séance, passez directement au TP1 en passant par le lien un peu plus bas. Si vous avez déjà installé votre application Symfony, suivez les instructions suivantes pour lancer votre application.
-
 ## Lancer l'application
 Vérifiez que Docker Desktop est lancé en cherchant son icône dans la barre de tâche. Si vous ne la trouvez pas, ouvrez l'application et attendez que tout soit opérationnel.
 
@@ -50,4 +43,4 @@ git push -u
 
 [TP2 : Symfony / Twig](https://docs.google.com/document/d/11uuAOaOj0v4lq472WgB8HtH0jFywj6eqPpf_MF6erPA/edit?usp=sharing)
 
-[TP3 : Database as a Service](https://docs.google.com/document/d/1cR5Er7pTwAj1ihKRMcsArq_EEaEUslYvOdaPq20NPmY/edit?usp=sharing)
+[TP3 : Symfony / Database as a Service](https://docs.google.com/document/d/1cR5Er7pTwAj1ihKRMcsArq_EEaEUslYvOdaPq20NPmY/edit?usp=sharing)
