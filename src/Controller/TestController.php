@@ -4,10 +4,12 @@
 namespace App\Controller;
 
 /* indique l'utilisation du bon bundle pour gérer nos routes */
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 /* le nom de la classe doit être cohérent avec le nom du fichier */
+/*
 class TestController
 {
     // L'attribute #[Route] indique ici que l'on associe la route
@@ -19,5 +21,16 @@ class TestController
     {
         $content = "<html><body><p>Get lost.</p></body></html>";
         return new Response($content);
+    }
+}*/
+
+class TestController extends AbstractController
+{
+    #[Route('/', name: 'home')]
+    public function home(): Response
+    {
+        return $this->render('test.html.twig', [
+            'msg' => 'Get lost.'
+        ]);
     }
 }
