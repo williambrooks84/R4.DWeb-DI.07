@@ -4,17 +4,29 @@
 namespace App\Service;
 
 use App\Entity\Lego;
+use \PDO;
 
 class LegoService
 {
     public function getLego(): Lego
     {
-        $lego = new Lego(10252, 'La coccinelle Volkswagen', 'Creator Expert');
-        $lego->setDescription("Construis une réplique LEGO® Creator Expert de l'automobile la plus populaire au monde. Ce magnifique modèle LEGO est plein de détails authentiques qui capturent le charme et la personnalité de la voiture.");
-        $lego->setPrice(94.99);
-        $lego->setPieces(1167);
-        $lego->setBoxImage('LEGO_10252_Box.png');
-        $lego->setLegoImage('LEGO_10252_Main.jpg');
+        $db = 'mysql:host=tp-symfony-mysql;dbname=lego_store;charset=utf8';
+        $username = 'root';
+        $password = 'root';
+        $pdo = new PDO($db, $username, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $pdo->query('SELECT * FROM lego');
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row) {
+        $lego = new Lego($row['id'], $row['name'], $row['collection']);
+        $lego->setDescription($row['description']);
+        $lego->setPrice($row['price']);
+        $lego->setPieces($row['pieces']);
+        $lego->setBoxImage($row['imagebox']);
+        $lego->setLegoImage($row['imagebg']);
         return $lego;
+        } 
     }
 }
