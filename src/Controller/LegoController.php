@@ -16,7 +16,7 @@ class LegoController extends AbstractController
             'legos' => $legoService->getLegos(),
         ]);
     }
-    #[Route('/{collection}', name: 'filter_by_collection')]
+    #[Route('/{collection}', name: 'filter_by_collection', requirements: ['collection' => 'creator|star_wars|creator_expert'])]
     public function filter($collection, LegoService $legoService): Response
     {
         return $this->render('lego.html.twig', [
