@@ -16,6 +16,16 @@ class LegoRepository extends ServiceEntityRepository
         parent::__construct($registry, Lego::class);
     }
 
+    public function findByCollection(string $collection): array
+    {
+        return $this->createQueryBuilder('l')
+            ->where('l.collection = :collection')
+            ->setParameter('collection', $collection)
+            ->orderBy('l.name', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Lego[] Returns an array of Lego objects
     //     */
