@@ -186,6 +186,10 @@
         <argument type="service" id=".service_locator.ZyP9f7K.App\Controller\LegoController"/>
       </call>
     </service>
+    <service id="App\Repository\LegoCollectionRepository" class="App\Repository\LegoCollectionRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\LegoRepository" class="App\Repository\LegoRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -1982,7 +1986,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.D8DwEDI"/>
+      <argument type="service" id=".service_locator.tVL.0hF"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -2652,6 +2656,8 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LegoController" class="App\Controller\LegoController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LegoController" class="App\Controller\LegoController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\LegoController" class="App\Controller\LegoController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LegoCollectionRepository" class="App\Repository\LegoCollectionRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\LegoCollectionRepository" class="App\Repository\LegoCollectionRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LegoRepository" class="App\Repository\LegoRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\LegoRepository" class="App\Repository\LegoRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.pRu6x_4" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -3187,9 +3193,10 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service_closure" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.D8DwEDI" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.tVL.0hF" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\LegoCollectionRepository" type="service_closure" id="App\Repository\LegoCollectionRepository"/>
         <argument key="App\Repository\LegoRepository" type="service_closure" id="App\Repository\LegoRepository"/>
       </argument>
     </service>
