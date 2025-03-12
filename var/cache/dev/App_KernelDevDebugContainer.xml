@@ -186,6 +186,10 @@
         <argument type="service" id=".service_locator.ZyP9f7K.App\Controller\LegoController"/>
       </call>
     </service>
+    <service id="App\Repository\CollectRepository" class="App\Repository\CollectRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\LegoCollectionRepository" class="App\Repository\LegoCollectionRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -218,7 +222,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.t8npFLZ"/>
+      <argument type="service" id=".service_locator.3f8ifb8"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1295,7 +1299,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.t8npFLZ"/>
+      <argument type="service" id=".service_locator.3f8ifb8"/>
     </service>
     <service id="routing.resolver" class="Symfony\Component\Config\Loader\LoaderResolver">
       <call method="addLoader">
@@ -1986,7 +1990,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.tVL.0hF"/>
+      <argument type="service" id=".service_locator.Ru4YNiw"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -2656,6 +2660,8 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LegoController" class="App\Controller\LegoController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LegoController" class="App\Controller\LegoController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\LegoController" class="App\Controller\LegoController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CollectRepository" class="App\Repository\CollectRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CollectRepository" class="App\Repository\CollectRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LegoCollectionRepository" class="App\Repository\LegoCollectionRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\LegoCollectionRepository" class="App\Repository\LegoCollectionRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LegoRepository" class="App\Repository\LegoRepository" autowire="true" abstract="true"/>
@@ -3096,37 +3102,38 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.zHyJIs5" method="withContext"/>
     </service>
-    <service id=".service_locator.BuannMJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.9oQFB5E" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="legoRepository" type="service_closure" id="App\Repository\LegoRepository"/>
+        <argument key="legoCollectionRepository" type="service_closure" id="App\Repository\LegoCollectionRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.BuannMJ.App\Controller\LegoController::home()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.9oQFB5E.App\Controller\LegoController::home()" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\LegoController::home()"/>
       <argument>App\Controller\LegoController::home()</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.BuannMJ" method="withContext"/>
+      <factory service=".service_locator.9oQFB5E" method="withContext"/>
     </service>
-    <service id=".service_locator.BuannMJ.App\Controller\LegoController::filter()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.9oQFB5E.App\Controller\LegoController::filter()" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\LegoController::filter()"/>
       <argument>App\Controller\LegoController::filter()</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.BuannMJ" method="withContext"/>
+      <factory service=".service_locator.9oQFB5E" method="withContext"/>
     </service>
-    <service id=".service_locator.t8npFLZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.3f8ifb8" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.zHyJIs5.kernel::registerContainerConfiguration()"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.zHyJIs5.kernel::registerContainerConfiguration()"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.zHyJIs5.kernel::loadRoutes()"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.zHyJIs5.kernel::loadRoutes()"/>
-        <argument key="App\Controller\LegoController::home" type="service_closure" id=".service_locator.BuannMJ.App\Controller\LegoController::home()"/>
-        <argument key="App\Controller\LegoController::filter" type="service_closure" id=".service_locator.BuannMJ.App\Controller\LegoController::filter()"/>
+        <argument key="App\Controller\LegoController::home" type="service_closure" id=".service_locator.9oQFB5E.App\Controller\LegoController::home()"/>
+        <argument key="App\Controller\LegoController::filter" type="service_closure" id=".service_locator.9oQFB5E.App\Controller\LegoController::filter()"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.zHyJIs5.kernel::registerContainerConfiguration()"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.zHyJIs5.kernel::loadRoutes()"/>
-        <argument key="App\Controller\LegoController:home" type="service_closure" id=".service_locator.BuannMJ.App\Controller\LegoController::home()"/>
-        <argument key="App\Controller\LegoController:filter" type="service_closure" id=".service_locator.BuannMJ.App\Controller\LegoController::filter()"/>
+        <argument key="App\Controller\LegoController:home" type="service_closure" id=".service_locator.9oQFB5E.App\Controller\LegoController::home()"/>
+        <argument key="App\Controller\LegoController:filter" type="service_closure" id=".service_locator.9oQFB5E.App\Controller\LegoController::filter()"/>
       </argument>
     </service>
     <service id=".service_locator.va_rxC4" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -3193,9 +3200,10 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service_closure" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.tVL.0hF" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Ru4YNiw" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\CollectRepository" type="service_closure" id="App\Repository\CollectRepository"/>
         <argument key="App\Repository\LegoCollectionRepository" type="service_closure" id="App\Repository\LegoCollectionRepository"/>
         <argument key="App\Repository\LegoRepository" type="service_closure" id="App\Repository\LegoRepository"/>
       </argument>
@@ -4113,7 +4121,7 @@
     <service id="doctrine.migrations.metadata_storage" alias="doctrine.migrations.storage.table_storage"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.pRu6x_4" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.t8npFLZ"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.3f8ifb8"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.BxSdgVt"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
@@ -4123,7 +4131,7 @@
     <service id="twig.error_renderer.html.inner" alias="error_handler.error_renderer.html"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.n_ENPtW" alias=".service_locator.zHyJIs5"/>
-    <service id=".service_locator.D6QuDmA" alias=".service_locator.BuannMJ"/>
+    <service id=".service_locator.6Q6TJPC" alias=".service_locator.9oQFB5E"/>
     <service id=".service_locator._Hy4NY2" alias=".service_locator.ZyP9f7K"/>
   </services>
 </container>

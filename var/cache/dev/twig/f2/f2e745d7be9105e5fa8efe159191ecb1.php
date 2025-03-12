@@ -84,11 +84,28 @@ class __TwigTemplate_740acd7e79c1a238eafc74adf1255d01 extends Template
         // line 6
         yield "  <div class=\"header\">
     <nav>
-        <a href=\"/\">All</a>
-        <a href=\"/creator\">Creator</a>
-        <a href=\"/star_wars\">Star Wars</a>
-        <a href=\"/creator_expert\">Creator Expert</a>
-    </nav>
+        <a href=\"";
+        // line 8
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        yield "\">All</a> <!-- Lien pour afficher tous les legos -->
+        ";
+        // line 9
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["collections"]) || array_key_exists("collections", $context) ? $context["collections"] : (function () { throw new RuntimeError('Variable "collections" does not exist.', 9, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["collection"]) {
+            // line 10
+            yield "            <a href=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("filter_by_collection", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["collection"], "id", [], "any", false, false, false, 10)]), "html", null, true);
+            yield "\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["collection"], "name", [], "any", false, false, false, 10), "html", null, true);
+            yield "</a>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_key'], $context['collection'], $context['_parent']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 12
+        yield "    </nav>
   </div>  
     ";
         // line 14
@@ -111,7 +128,7 @@ class __TwigTemplate_740acd7e79c1a238eafc74adf1255d01 extends Template
             yield "</h1>
                     <h4>Collection: ";
             // line 20
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["lego"], "collection", [], "any", false, false, false, 20), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["lego"], "collection", [], "any", false, false, false, 20), "name", [], "any", false, false, false, 20), "html", null, true);
             yield "</h4>
                     <span class=\"pieces\">Pièces: ";
             // line 21
@@ -179,7 +196,7 @@ class __TwigTemplate_740acd7e79c1a238eafc74adf1255d01 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  146 => 37,  132 => 26,  126 => 23,  122 => 22,  118 => 21,  114 => 20,  110 => 19,  104 => 18,  99 => 15,  95 => 14,  85 => 6,  75 => 5,  58 => 3,  41 => 1,);
+        return array (  163 => 37,  149 => 26,  143 => 23,  139 => 22,  135 => 21,  131 => 20,  127 => 19,  121 => 18,  116 => 15,  112 => 14,  108 => 12,  97 => 10,  93 => 9,  89 => 8,  85 => 6,  75 => 5,  58 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -191,10 +208,10 @@ class __TwigTemplate_740acd7e79c1a238eafc74adf1255d01 extends Template
 {% block body %}
   <div class=\"header\">
     <nav>
-        <a href=\"/\">All</a>
-        <a href=\"/creator\">Creator</a>
-        <a href=\"/star_wars\">Star Wars</a>
-        <a href=\"/creator_expert\">Creator Expert</a>
+        <a href=\"{{ path('home') }}\">All</a> <!-- Lien pour afficher tous les legos -->
+        {% for collection in collections %}
+            <a href=\"{{ path('filter_by_collection', { id: collection.id }) }}\">{{ collection.name }}</a>
+        {% endfor %}
     </nav>
   </div>  
     {% for lego in legos %}
@@ -203,7 +220,7 @@ class __TwigTemplate_740acd7e79c1a238eafc74adf1255d01 extends Template
                 <div class=\"lego_header\">
                     <img class=\"locandina\" src=\"/images/{{ lego.boxImage }}\" alt=\"{{ lego.name }}\"/>
                     <h1>{{ lego.name }}</h1>
-                    <h4>Collection: {{ lego.collection }}</h4>
+                    <h4>Collection: {{ lego.collection.name }}</h4>
                     <span class=\"pieces\">Pièces: {{ lego.pieces }}</span>
                     <p class=\"price\">{{ lego.price }}€</p><br>
                     <a href=\"index.php?buy={{ lego.id }}\"><button>Buy</button></a>
