@@ -18,6 +18,9 @@ class LegoCollection{
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[ORM\Column(type: 'boolean')]
+    private bool $showDisconnected = false;
+
     /**
      * @var Collection<int, Lego>
      */
@@ -43,6 +46,17 @@ class LegoCollection{
     {
         $this->name = $name;
 
+        return $this;
+    }
+
+    public function isShowDisconnected(): bool
+    {
+        return $this->showDisconnected;
+    }
+
+    public function setShowDisconnected(bool $showDisconnected): self
+    {
+        $this->showDisconnected = $showDisconnected;
         return $this;
     }
 
