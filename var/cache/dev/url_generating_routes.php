@@ -20,12 +20,8 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\LegoController::home'], [], [['text', '/']], [], [], []],
     'filter_by_collection' => [['id'], ['_controller' => 'App\\Controller\\LegoController::filter'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/collections']], [], [], []],
-    'app_login' => [[], ['_controller' => 'App\\Controller\\LoginController::login'], [], [['text', '/login']], [], [], []],
-    'app_logout' => [[], ['_controller' => 'App\\Controller\\LoginController::logout'], [], [['text', '/logout']], [], [], []],
     'lego_store_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
     'App\Controller\LegoController::home' => [[], ['_controller' => 'App\\Controller\\LegoController::home'], [], [['text', '/']], [], [], []],
     'App\Controller\LegoController::filter' => [['id'], ['_controller' => 'App\\Controller\\LegoController::filter'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/collections']], [], [], []],
-    'App\Controller\LoginController::login' => [[], ['_controller' => 'App\\Controller\\LoginController::login'], [], [['text', '/login']], [], [], []],
-    'App\Controller\LoginController::logout' => [[], ['_controller' => 'App\\Controller\\LoginController::logout'], [], [['text', '/logout']], [], [], []],
     'App\Controller\SecurityController::login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
 ];
