@@ -9,7 +9,11 @@
         {% for collection in collections %}
             <a href="{{ path('filter_by_collection', { id: collection.id }) }}">{{ collection.name }}</a>
         {% endfor %}
-        <a href="{{ path('lego_store_login') }}">Se connecter</a>
+        {% if app.user %}
+            <span class="user">Bienvenue {{ app.user.email }}</span> <a href="{{ path('app_logout') }}">Se déconnecter</a>
+        {% else %}
+            <a href="{{ path('lego_store_login') }}">Se connecter</a>
+        {% endif %}
     </nav>
   </div>  
     {% for lego in legos %}

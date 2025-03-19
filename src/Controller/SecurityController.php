@@ -23,10 +23,17 @@ class SecurityController extends AbstractController
         // Get the last authentication error (if any)
         $error = $authenticationUtils->getLastAuthenticationError();
 
+
         return $this->render('login.html.twig', [
             'controller_name' => 'LoginController',
             'last_username' => $lastUsername,
             'error' => $error,
         ]);
+    }
+
+    #[route('/logout', name:'app_logout')]
+    public function logout(): void
+    {
+        // This method will not be executed
     }
 }

@@ -21,7 +21,9 @@ return [
     'home' => [[], ['_controller' => 'App\\Controller\\LegoController::home'], [], [['text', '/']], [], [], []],
     'filter_by_collection' => [['id'], ['_controller' => 'App\\Controller\\LegoController::filter'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/collections']], [], [], []],
     'lego_store_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
+    'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
     'App\Controller\LegoController::home' => [[], ['_controller' => 'App\\Controller\\LegoController::home'], [], [['text', '/']], [], [], []],
     'App\Controller\LegoController::filter' => [['id'], ['_controller' => 'App\\Controller\\LegoController::filter'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/collections']], [], [], []],
     'App\Controller\SecurityController::login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
+    'App\Controller\SecurityController::logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
 ];
